@@ -1,6 +1,6 @@
-#Snack Overflow References#
+# Snack Overflow References #
 
-##Project-related Files##
+## Project-related Files ##
 
 * Project flowchart (Draw.io)
 
@@ -38,7 +38,7 @@ https://docs.google.com/document/d/1U7db1QrnCgsjv7PHnljCp4jkl2VHlaVaOiQd5BProhU/
 https://drive.google.com/file/d/1f19ClOgAu1VBDe27e_qKol_eMld-vPvM/view?usp=sharing
 ```
 
-##GitHub Files##
+## GitHub Files ##
 
 * Wiki
 

@@ -35,7 +35,7 @@ https://docs.google.com/document/d/1U7db1QrnCgsjv7PHnljCp4jkl2VHlaVaOiQd5BProhU/
 * Tables Image (Google Doc)
 
 ```
-https://drive.google.com/file/d/1f19ClOgAu1VBDe27e_qKol_eMld-vPvM/view?usp=sharing
+https://drive.google.com/file/d/17bL1mM-1c2hvPHIGcicjBUzzMaEAHSz0/view?usp=sharing
 ```
 
 ## GitHub Files ##

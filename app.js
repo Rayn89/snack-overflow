@@ -27,6 +27,7 @@ const store = new SequelizeStore({ db: sequelize });
 
 app.use(
   session({
+    name: 'snack_session.sid',
     secret: sessionSecret,
     store,
     saveUninitialized: false,

@@ -71,12 +71,16 @@ router.post('/ask', requireAuth, csrfProtection, questionValidator, asyncHandler
     }
 }))
 
-router.get("/:id(\\d+)",asyncHandler(async(req, res)=>{
+router.get("/:id(\\d+)", csrfProtection, asyncHandler(async(req, res)=>{
     const questionId = parseInt(req.params.id, 10)
     const question = await db.Question.findByPk(questionId,{
         include: db.User
     })
-    res.render("question",{question})
+    const answers = await db.Answer.findAll( {
+        include: db.User,
+        where: {questionId}
+    });
+    res.render("question",{question, answers, csrfToken: req.csrfToken() })
 }));
 
 router.get('/:id(\\d+)/edit', requireAuth, csrfProtection, asyncHandler(async(req, res) => {
@@ -123,8 +127,33 @@ router.post(
   })
 );
 
-router.get('/questions/')
+router.get('/:id(\\d+)/delete', requireAuth, asyncHandler(async (req, res) => {
+    const questionId = parseInt(req.params.id, 10);
+    const question = await db.Question.findByPk(questionId);
 
+    if (res.locals.user.id !== question.userId) {
+        const err = new Error("Not authorized");
+        err.status = 401;
+        throw err;
+    }
 
+    res.render('question-delete', {question});
+}));
+
+router.post('/:id(\\d+)/delete', requireAuth, asyncHandler(async (req, res) => {
+    const questionId = parseInt(req.params.id, 10);
+    const question = await db.Question.findByPk(questionId);
+
+    if (res.locals.user.id !== question.userId) {
+        const err = new Error("Not authorized");
+        err.status = 401;
+        throw err;
+    }
+
+    await question.destroy();
+    res.redirect('/questions');
+}));
+
+router.post(':')
 
 module.exports = router;

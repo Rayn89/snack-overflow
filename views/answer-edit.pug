@@ -1,0 +1,8 @@
+extends layout.pug 
+
+block content
+    form(action=`/answers/${answer.id}/edit` method="post")
+        input(type='hidden' name='_csrf' value=csrfToken))
+        label(for='content') Answer:
+        textarea(type='text' name='content') #{answer.content}
+        button Edit

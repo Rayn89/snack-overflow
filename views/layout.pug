@@ -6,7 +6,7 @@ html
         link(rel='stylesheet' href='/stylesheets/reset.css')
   body
     if locals.authenticated
-      p #{user.userName}
+      p #{locals.user.userName}
       form(action='/users/logout' method='post')
         button Log Out
     else

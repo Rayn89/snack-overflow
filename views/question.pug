@@ -1,0 +1,7 @@
+extends layout.pug
+
+block content
+    h1 #{question.title}
+    h3 #{question.content}
+    h6 asked at: #{(question.updatedAt).toString().split(' ').slice(0,5).join(' ')}
+    h5 posted by: #{question.User.userName}

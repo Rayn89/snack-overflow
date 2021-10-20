@@ -5,24 +5,26 @@ block content
     h3 #{question.content}
     h5 asked by: #{question.User.userName}
     h5 asked on: #{(question.updatedAt).toString().split(' ').slice(0,5).join(' ')}
-    div 
+    div
         if locals.authenticated
-            if question.userId === locals.user.id 
+            if question.userId === locals.user.id
                 form(action=`/questions/${question.id}/edit` method='get')
                     button Edit
                 form(action=`/questions/${question.id}/delete` method='get')
                     button Delete
     div
-        if answers 
-            each answer in answers 
-                div 
+        if answers
+            each answer in answers
+                div
                     p #{answer.content}
                     h5 answered by: #{answer.User.userName}
                     h5 posted on: #{answer.updatedAt.toString().split(' ').slice(0,5).join(' ')}
-                if answer.User.id === locals.user.id 
-                    form(action=`/answer/${answer.id}/edit`, method="get")
+                if answer.User.id === locals.user.id
+                    form(action=`/answers/${answer.id}/edit`, method="get")
                         button Edit Answer
-        else 
+                    form(action=`/answers/${answer.id}/delete`, method="get")
+                        button Delete Answer
+        else
             p Be the first one to answer this question!
         if errors
             p The following errors occurred:
@@ -38,5 +40,3 @@ block content
                 label(for='content') Answer:
                 textarea(name='content')
                 button Submit Answer
-        
-        

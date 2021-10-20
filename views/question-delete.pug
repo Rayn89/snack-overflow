@@ -1,0 +1,9 @@
+extends layout.pug 
+
+block content 
+    h1 Are you sure you want to delete your question: 
+    h3 #{question.title}
+    form(action=`/questions/${question.id}/delete` method='post')
+        button Delete
+    
+    

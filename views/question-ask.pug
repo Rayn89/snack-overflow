@@ -1,0 +1,16 @@
+extends layout.pug 
+
+block content
+    if errors
+        p The following errors occurred:
+        ul
+            each error in errors
+                li= error
+    form(action=`/questions/ask` method="post")
+        input(type='hidden' name='_csrf' value=csrfToken)
+        input(type='hidden' name='userId' value=locals.user.id)
+        label(for='title') Question:
+        input(type='text' name='title' value=question.title)
+        label(for='content') Description:
+        textarea(type='text' name='content') #{question.content}
+        button Submit

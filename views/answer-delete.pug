@@ -1,0 +1,7 @@
+extends layout.pug
+
+block content
+    h1 Are you sure you want to delete your answer:
+    h3 #{answer.content}
+    form(action=`/answers/${answer.id}/delete` method='post')
+        button Delete

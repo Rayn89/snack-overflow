@@ -84,7 +84,7 @@ router.post(
       user.hashedPassword = hashedPassword;
       await user.save();
       loginUser(req, res, user);
-      res.redirect("/");
+      return;
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
       res.render("user-signup", {
@@ -134,7 +134,7 @@ router.post(
 
         if (passwordMatch) {
           loginUser(req, res, user);
-          return res.redirect("/");
+          return;
         }
       }
 
@@ -157,10 +157,13 @@ router.post("/logout", (req, res) => {
   res.redirect("/");
 });
 
-router.post("/demo", asyncHandler( async (req, res) => {
-  const user = await db.User.findByPk(1);
-  loginUser(req, res, user);
-  res.redirect("/");
-}));
+router.post(
+  "/demo",
+  asyncHandler(async (req, res) => {
+    const user = await db.User.findByPk(1);
+    loginUser(req, res, user);
+    return;
+  })
+);
 
 module.exports = router;

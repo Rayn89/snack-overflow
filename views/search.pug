@@ -5,7 +5,7 @@ block content
         div.sidebar
         div.mainbar
             div.askBox
-                a.qType Recent Questions
+                a.qType Results for: "#{term}"
                 form(action='/questions/ask' method="get")
                     button.ask Ask a Question
             if questions

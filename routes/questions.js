@@ -11,6 +11,7 @@ router.get(
   "/",
   asyncHandler(async (req, res) => {
     const questions = await db.Question.findAll({
+        include: db.User,
       limit: 9,
       order: [["updatedAt", "DESC"]],
     });

@@ -19,11 +19,12 @@ block content
                     p #{answer.content}
                     h5 answered by: #{answer.User.userName}
                     h5 posted on: #{answer.updatedAt.toString().split(' ').slice(0,5).join(' ')}
-                if answer.User.id === locals.user.id
-                    form(action=`/answers/${answer.id}/edit`, method="get")
-                        button Edit Answer
-                    form(action=`/answers/${answer.id}/delete`, method="get")
-                        button Delete Answer
+                if locals.authenticated
+                    if answer.User.id === locals.user.id
+                        form(action=`/answers/${answer.id}/edit`, method="get")
+                            button Edit Answer
+                        form(action=`/answers/${answer.id}/delete`, method="get")
+                            button Delete Answer
         else
             p Be the first one to answer this question!
         if errors

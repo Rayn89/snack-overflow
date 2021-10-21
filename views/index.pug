@@ -6,7 +6,7 @@ block content
         div.mainbar
           if locals.authenticated
             div.askBox
-                a.qType Recent Questions
+                a.qType Trending Questions
                 form(action='/questions/ask' method="get")
                     button.ask Ask a Question
             if questions
@@ -18,6 +18,6 @@ block content
                         div.qCont
                             a(href=`/questions/${question.id}`) #{question.title}
           else
-            p Please Log in/Sign up.
+            img.splash(src="https://cdn.discordapp.com/attachments/898413474080772116/900862081153237072/splashpage.png")
             a(href='/questions') browse questions
         div.sidebar

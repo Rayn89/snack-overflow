@@ -1,9 +1,19 @@
-extends layout.pug
+extends layout
 
-block content
-    div 
-        form(action="/questions/ask" method='get')
-            button Ask a Question
-    each question in questions
-        div
-            a(href=`/questions/${question.id}`) #{question.title}
+block content 
+    div.wrapper
+        div.sidebar
+        div.mainbar
+            div.askBox
+                a.qType Recent Questions
+                form(action='/questions/ask' method="get")
+                    button.ask Ask a Question
+            if questions
+                each question in questions 
+                    div.questionBox
+                        div.info
+                            a Posted by:
+                            a #{question.User.userName}
+                        div.qCont
+                            a(href=`/questions/${question.id}`) #{question.title}
+        div.sidebar

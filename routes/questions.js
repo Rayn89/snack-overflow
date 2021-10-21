@@ -11,7 +11,7 @@ router.get(
   "/",
   asyncHandler(async (req, res) => {
     const questions = await db.Question.findAll({
-        include: db.User,
+      include: db.User,
       limit: 9,
       order: [["updatedAt", "DESC"]],
     });
@@ -169,19 +169,27 @@ router.post(
       err.status = 401;
       throw err;
     }
-    // #############brain gotta poop##################
-    // const answerId = await db.Answer.findOne({
-    //   where: { questionId },
-    // });
-    // await db.Vote.destroy({
-    //   where:{
-    //     questionId,
-    //   }
-    // })
 
-    await db.Answer.destroy({
+    const answers = await db.Answer.findAll({
       where: { questionId },
     });
+    
+    let answerIds = answers.map((answer) => {
+      return answer.dataValues.id;
+    });
+
+    await db.Vote.destroy({
+      where: {
+        answerId: answerIds,
+      },
+    });
+
+    await db.Answer.destroy({
+      where: {
+        questionId,
+      },
+    });
+
     await question.destroy();
     res.redirect("/questions");
   })

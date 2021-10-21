@@ -16,7 +16,13 @@ router.get('/', asyncHandler(async(req, res) => {
 
 router.get('/search', asyncHandler(async(req, res) => {
   const { term } = req.query;
-  const questions = await db.Question.findAll({where: {title: {[Op.like]:'%' + term + '%'}}, include: db.User})
+  const questions = await db.Question.findAll({
+    where: {
+      title: {
+        [Op.like]:'%' + term + '%'
+      }
+    }, include: db.User
+  })
   res.render('search', {questions, term})
 }));
 
@@ -31,101 +37,95 @@ router.post("/vote/:answerId/:type",asyncHandler(async (req, res)=>{
     }
   })
 
-  if(!vote){
-    vote = await db.Vote.create({
-      userId: req.session.auth.userId,
-      answerId,
-      up: type === "up" ? true : false,
-      down: type === "down" ? true : false
-    })
-    return res.json(vote)
-  }
 
   if( type === "up"){
 
-    if(vote.down === true){
+    if(!vote){
+      vote = await db.Vote.create({
+        userId: req.session.auth.userId,
+        answerId,
+        up:true,
+        down: false
+      })
       await answer.update({
         answerScore:answer.answerScore+1
       })
+    } else if (vote.down === true){
+      await answer.update({
+        answerScore:answer.answerScore+2
+      })
       await vote.update({
+        up:true,
         down:false
       })
-      // return res.json({...vote, answerScore : answer.answerScore})
-    }
-    //if vote.down === true then
-      //update answer.voteCount +1
-      //vote.down = false
 
-      console.log("answer:",answer.dataValues)
-      console.log("vote:",vote.dataValues)
-      if(vote.up === true){
-        await answer.update({
-          answerScore:answer.answerScore-1
-        })
-        await vote.update({
-          up:false
-        })
-        return res.json({ answerScore : answer.answerScore,...vote})
-      }
+    } else if (vote.up === true){
+      await answer.update({
+        answerScore:answer.answerScore-1
+      })
+      await vote.update({
+        up:false,
+        down:false
+      })
 
-      console.log("after:")
-      console.log("answer:",answer.dataValues)
-      console.log("vote:",vote.dataValues)
-
-    //if vote.up === true then
-      //decrement answer.voteCount
-      //update vote.up to be false
-
-    if(vote.up === false){
+    } else if (vote.up === false){
       await answer.update({
         answerScore:answer.answerScore+1
       })
       await vote.update({
-        up:true
+        up:true,
+        down:false
       })
-      return res.json({ answerScore : answer.answerScore,...vote})
     }
-    //if vote.up === false then
-      //increment answer.voteCount
-      //update vote.up to be true
+    console.log(vote)
+    return res.json({ answerScore : answer.answerScore, down : vote.down, up : vote.up, ...vote.dataValues })
 
   }else if(type === "down"){
 
-    if(vote.up === true){
-      console.log("downnn")
+    if(!vote){
+      vote = await db.Vote.create({
+        userId: req.session.auth.userId,
+        answerId,
+        up:false,
+        down: true
+      })
       await answer.update({
         answerScore:answer.answerScore-1
       })
-      await vote.update({
-        up:false
-      })
-      // return res.json(vote)
-    }
 
-    if(vote.down === true){
+    } else if(vote.up === true){
+      console.log("downnn")
+      await answer.update({
+        answerScore:answer.answerScore-2
+      })
+      await vote.update({
+        up:false,
+        down:true
+      })
+
+
+    } else if(vote.down === true){
       await answer.update({
         answerScore:answer.answerScore+1
       })
       await vote.update({
-        down:false
+        down:false,
+        up:false
       })
-      return res.json(vote)
-    }
 
-    if(vote.down === false){
+    } else if(vote.down === false){
       await answer.update({
         answerScore:answer.answerScore-1
       })
       await vote.update({
-        down:true
+        down:true,
+        up:false
       })
-      return res.json(vote)
     }
+    return res.json({ answerScore : answer.answerScore, ...vote.dataValues })
   }else{
     return res.send('why?')
   }
-
-  return res.json(vote)
 }))
 
 

@@ -169,6 +169,15 @@ router.post(
       err.status = 401;
       throw err;
     }
+    // #############brain gotta poop##################
+    // const answerId = await db.Answer.findOne({
+    //   where: { questionId },
+    // });
+    // await db.Vote.destroy({
+    //   where:{
+    //     questionId,
+    //   }
+    // })
 
     await db.Answer.destroy({
       where: { questionId },

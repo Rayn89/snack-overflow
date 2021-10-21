@@ -1,6 +1,6 @@
 extends layout
 
-block content 
+block content
     div.wrapper
         div.sidebar
         div.mainbar
@@ -10,7 +10,7 @@ block content
                 form(action='/questions/ask' method="get")
                     button.ask Ask a Question
             if questions
-                each question in questions 
+                each question in questions
                     div.questionBox
                         div.info
                             a Posted by:
@@ -18,5 +18,6 @@ block content
                         div.qCont
                             a(href=`/questions/${question.id}`) #{question.title}
           else
-            p Please Sign in/Sign up.
+            p Please Log in/Sign up.
+            a(href='/questions') browse questions
         div.sidebar

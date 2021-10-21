@@ -9,6 +9,7 @@ body{
 a{
     text-decoration: none;
 }
+
 /* #navbar################### */
 
 .navWrapper{
@@ -202,30 +203,40 @@ a{
     height: 0;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-
-    border-bottom: 5px solid black;
-  }
+    border-bottom: 5px solid grey;
+}
 .down {
     width: 0;
     height: 0;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-
-    border-top: 5px solid black;
-  }
+    border-top: 5px solid grey;
+}
 .upfake {
     width: 0;
     height: 0;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-
-    border-bottom: 5px solid black;
+    border-bottom: 5px solid grey;
   }
 .downfake {
     width: 0;
     height: 0;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-
-    border-top: 5px solid black;
-  }
+    border-top: 5px solid grey;
+}
+.uptrue {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid orange;
+}
+.downtrue {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid blue;
+}

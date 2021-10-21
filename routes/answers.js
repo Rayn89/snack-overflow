@@ -117,6 +117,12 @@ router.post(
       throw err;
     }
 
+    await db.Vote.destroy({
+      where:{
+        answerId
+      }
+    })
+
     await answer.destroy();
     res.redirect(`/questions/${questionId}`);
   })

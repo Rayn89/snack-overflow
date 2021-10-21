@@ -1,0 +1,242 @@
+body{
+    margin: 0px;
+}
+
+*{
+    font-family: "Quicksand", sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* #navbar################### */
+
+.navWrapper{
+    display:flex;
+    justify-content: space-between;
+    background-color: #252651;
+    color: white;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+
+}
+
+.logoPic{
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    margin: .2rem;
+    content: "";
+    background: url("https://cdn.discordapp.com/attachments/898413474080772116/900280259310678056/logoicongrey.png") no-repeat 0 0;
+    background-size: 100%;
+}
+
+.navQuestions{
+    color: white;
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
+    padding: 0 1rem;
+    margin-left: 1rem;
+}
+
+.navQuestions:visited{
+    color: white;
+}
+
+.search{
+    display: flex;
+    height: 1.4rem;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    margin: 0;
+}
+
+.magnify{
+    max-height: 35%;
+    height: 1rem;
+    width: auto;
+    background-color: white;
+    border-top: 1px solid white;
+    outline: none;
+    margin: 0 0.4rem;
+}
+
+.searchbar{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    height: 100%;
+}
+
+.bar{
+    width: 20rem;
+    height: 100%;
+    border-left: white;
+    border-right: 0.5px solid #dddddd;
+    border-top: 0.5px solid rgb(245, 245, 248);
+    border-bottom: 0.5px solid rgb(245, 245, 248);
+    font-family: "Quicksand", sans-serif;
+    outline: none;
+}
+
+.bar-button{
+    width: 5rem;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    font-family: "Quicksand", sans-serif;
+}
+
+.bar-button:hover{
+    background-color: rgb(232, 237, 240);
+}
+
+.right-buttons{
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-right: 0.35rem;
+}
+
+.navUN{
+    margin: 0;
+}
+
+.navUN:visited{
+    color: white;
+}
+
+.logout{
+    border: none;
+    color: white;
+    background-color: transparent;
+    height: 100%;
+    border-left: 1px solid grey;
+}
+
+/* #Body Wrapper################# */
+
+.wrapper{
+    display: flex;
+}
+
+.sidebar{
+    display:flex;
+    flex-direction: column;
+    width: 18%;
+}
+
+.mainbar{
+    display: flex;
+    flex-direction: column;
+    width: 64%;
+    align-items: center;
+}
+
+/* #Questions################ */
+
+.askBox{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 0.5px solid rgb(66, 66, 66);
+}
+
+.qType{
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem;
+}
+
+.ask{
+    border: none;
+    color: white;
+    background-color: #6db4e9;
+    height: 100%;
+    border-left: 1px solid grey;
+    padding: 0.4rem;
+    border-radius: 8px;
+}
+
+.ask:hover{
+    background-color: #49799d;
+}
+
+.questionBox{
+    display: flex;
+    width: 70%;
+    height: 3rem;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.5 solid #908fb263;
+    padding: 0.25rem;
+}
+
+.questionBox:hover{
+    background-color: rgb(197, 197, 216);
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    font-size: .75rem;
+    justify-content: flex-end;
+}
+
+.qCont{
+    display: flex;
+    width: 75%;
+    justify-content: flex-start;
+    text-decoration: none;
+}
+
+/*######## arrows ###########*/
+.up {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid grey;
+}
+.down {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid grey;
+}
+.upfake {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid grey;
+  }
+.downfake {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid grey;
+}
+.uptrue {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid orange;
+}
+.downtrue {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid blue;
+}

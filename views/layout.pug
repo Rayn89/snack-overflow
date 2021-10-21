@@ -3,15 +3,30 @@ html
   head
       block head
         title="Express Starter App"
-        link(rel='stylesheet' href='/stylesheets/reset.css')
+        link(rel='stylesheet' href='/stylesheets/style.css')
+        link(rel='stylesheet' href='/stylesheets/forms.css')
+        link(rel="preconnect" href="https://fonts.googleapis.com")
+        link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+        link(href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet")
   body
-    if locals.authenticated
-      p #{locals.user.userName}
-      form(action='/users/logout' method='post')
-        button Log Out
-    else
-      a(href='/users/login') Log In
-      a(href='/users/signup') Sign Up
-      form(action="/users/demo", method="post")
-        button Demo
+    div.navWrapper
+      div.logo
+        a.logoPic(href='/')
+        a.navQuestions(href='/questions') Questions
+      div.search
+        img.magnify(src='https://cdn.discordapp.com/attachments/898413474080772116/899517327291351060/search.png')
+        form.searchbar(action='/search' method='get')
+          input.bar(type='search' name='term' placeholder='Baking, Grilling, Spices...')
+          div.search
+            button.bar-button(type='submit') Search
+      div.right-buttons
+        if locals.authenticated
+          div.navUN #{locals.user.userName}
+          form(action='/users/logout' method='post')
+            button.logout Log Out
+        else
+          a.navUN(href='/users/login') Log In
+          a.navUN(href='/users/signup') Sign Up
+          form(action="/users/demo", method="post")
+            button Demo
     block content

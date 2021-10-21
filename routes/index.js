@@ -1,10 +1,134 @@
 const express = require('express');
 const router = express.Router();
+const Sequelize = require('sequelize');
+const Op = Sequelize.Op;
+const { asyncHandler } = require('./utils')
+const db = require('../db/models')
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'a/A Express Skeleton Home' });
-});
+router.get('/', asyncHandler(async(req, res) => {
+    const questions = await db.Question.findAll({
+      include: db.User
+    });
 
-router.get('/login')
+    res.render("index", { questions });
+}));
+
+router.get('/search', asyncHandler(async(req, res) => {
+  const { term } = req.query;
+  const questions = await db.Question.findAll({
+    where: {
+      title: {
+        [Op.like]:'%' + term + '%'
+      }
+    }, include: db.User
+  })
+  res.render('search', {questions, term})
+}));
+
+router.post("/vote/:answerId/:type",asyncHandler(async (req, res)=>{
+  const type = req.params.type;
+  const answerId = req.params.answerId;
+  let answer = await db.Answer.findByPk(answerId);
+  let vote =await db.Vote.findOne({
+    where:{
+      answerId,
+      userId: req.session.auth.userId,
+    }
+  })
+
+
+  if( type === "up"){
+
+    if(!vote){
+      vote = await db.Vote.create({
+        userId: req.session.auth.userId,
+        answerId,
+        up:true,
+        down: false
+      })
+      await answer.update({
+        answerScore:answer.answerScore+1
+      })
+    } else if (vote.down === true){
+      await answer.update({
+        answerScore:answer.answerScore+2
+      })
+      await vote.update({
+        up:true,
+        down:false
+      })
+
+    } else if (vote.up === true){
+      await answer.update({
+        answerScore:answer.answerScore-1
+      })
+      await vote.update({
+        up:false,
+        down:false
+      })
+
+    } else if (vote.up === false){
+      await answer.update({
+        answerScore:answer.answerScore+1
+      })
+      await vote.update({
+        up:true,
+        down:false
+      })
+    }
+    console.log(vote)
+    return res.json({ answerScore : answer.answerScore, down : vote.down, up : vote.up, ...vote.dataValues })
+
+  }else if(type === "down"){
+
+    if(!vote){
+      vote = await db.Vote.create({
+        userId: req.session.auth.userId,
+        answerId,
+        up:false,
+        down: true
+      })
+      await answer.update({
+        answerScore:answer.answerScore-1
+      })
+
+    } else if(vote.up === true){
+      console.log("downnn")
+      await answer.update({
+        answerScore:answer.answerScore-2
+      })
+      await vote.update({
+        up:false,
+        down:true
+      })
+
+
+    } else if(vote.down === true){
+      await answer.update({
+        answerScore:answer.answerScore+1
+      })
+      await vote.update({
+        down:false,
+        up:false
+      })
+
+    } else if(vote.down === false){
+      await answer.update({
+        answerScore:answer.answerScore-1
+      })
+      await vote.update({
+        down:true,
+        up:false
+      })
+    }
+    return res.json({ answerScore : answer.answerScore, ...vote.dataValues })
+  }else{
+    return res.send('why?')
+  }
+}))
+
+
+
+
 module.exports = router;

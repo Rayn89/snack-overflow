@@ -1,26 +1,32 @@
 extends layout.pug
 
 block content
-    if errors
-        p The following errors occurred:
-        ul
-            each error in errors
-                li= error
-    form(action="/users/signup" method="post")
-        input(type='hidden' name='_csrf' value=csrfToken)
-        div
-            label(for='userName') Username
-            input(type='text' name='userName' value=user.userName)
-        div
-            label(for='email') Email
-            input(type='email' name='email' value=user.email)
-        div
-            label(for='password') Password
-            input(type='password' name='password')
-        div
-            label(for='confirmPassword') Confirm Password
-            input(type='password' name='confirmPassword')
-        div
-            button Sign Up
-    div
-        p: a(href='/users/login') Already have an account?
+    .wrapper
+        .sidebar
+        .mainbar
+            if errors
+                .warn
+                    p The following errors occurred:
+                    ul
+                        each error in errors
+                            li= error
+            .sign-up
+                form.form(action="/users/signup" method="post")
+                    input(type='hidden' name='_csrf' value=csrfToken)
+                    div.field
+                        label(for='userName') Username
+                        input.form-bar(type='text' name='userName' value=user.userName)
+                    div.field
+                        label(for='email') Email
+                        input.form-bar(type='email' name='email' value=user.email)
+                    div.field
+                        label(for='password') Password
+                        input.form-bar(type='password' name='password')
+                    div.field
+                        label(for='confirmPassword') Confirm Password
+                        input.form-bar(type='password' name='confirmPassword')
+                    div.field-button
+                        button.signup-button Sign Up
+            div
+                p: a(href='/users/login') Already have an account?
+        .sidebar

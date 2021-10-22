@@ -9,8 +9,8 @@ block content
                 a.qType Trending Questions
                 form(action='/questions/ask' method="get")
                     button.ask Ask a Question
-            if questions
-                each question in questions
+            if sortedQuestions
+                each question in sortedQuestions
                     div.questionBox
                         div.info
                             a Posted by:

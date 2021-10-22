@@ -58,8 +58,13 @@ router.get(
       include: db.User,
     });
 
+    if (!answer) {
+      const err = new Error("Not Found");
+      err.status = 404;
+      throw err;
+    }
     if (res.locals.user.id !== answer.userId) {
-      const err = new Error("Not authorized");
+      const err = new Error("Not Authorized");
       err.status = 401;
       throw err;
     }
@@ -77,8 +82,13 @@ router.post(
     const answer = await db.Answer.findByPk(answerId, {
       include: db.User,
     });
+    if (!answer) {
+      const err = new Error("Not Found");
+      err.status = 404;
+      throw err;
+    }
     if (res.locals.user.id !== answer.userId) {
-      const err = new Error("Not authorized");
+      const err = new Error("Not Authorized");
       err.status = 401;
       throw err;
     }
@@ -94,8 +104,13 @@ router.get(
     const answerId = parseInt(req.params.id, 10);
     const answer = await db.Answer.findByPk(answerId);
 
+    if (!answer) {
+      const err = new Error("Not Found");
+      err.status = 404;
+      throw err;
+    }
     if (res.locals.user.id !== answer.userId) {
-      const err = new Error("Not authorized");
+      const err = new Error("Not Authorized");
       err.status = 401;
       throw err;
     }
@@ -112,8 +127,13 @@ router.post(
     const answer = await db.Answer.findByPk(answerId);
     const { questionId } = answer;
 
+    if (!answer) {
+      const err = new Error("Not Found");
+      err.status = 404;
+      throw err;
+    }
     if (res.locals.user.id !== answer.userId) {
-      const err = new Error("Not authorized");
+      const err = new Error("Not Authorized");
       err.status = 401;
       throw err;
     }

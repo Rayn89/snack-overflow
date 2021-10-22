@@ -87,7 +87,8 @@ router.get(
       include: db.User,
     });
     const answers = await db.Answer.findAll({
-      include: db.User,
+      order:[['createdAt']],
+      include: [db.User],
       where: { questionId },
     });
     res.render("question", { question, answers, csrfToken: req.csrfToken() });
@@ -104,8 +105,13 @@ router.get(
       include: db.User,
     });
 
+    if (!question) {
+      const err = new Error("Not Found");
+      err.status = 404;
+      throw err;
+    }
     if (res.locals.user.id !== question.userId) {
-      const err = new Error("Not authorized");
+      const err = new Error("Not Authorized");
       err.status = 401;
       throw err;
     }
@@ -131,8 +137,13 @@ router.post(
       content,
     };
 
+    if (!question) {
+      const err = new Error("Not Found");
+      err.status = 404;
+      throw err;
+    }
     if (res.locals.user.id !== question.userId) {
-      const err = new Error("Not authorized");
+      const err = new Error("Not Authorized");
       err.status = 401;
       throw err;
     }
@@ -161,8 +172,13 @@ router.get(
     const questionId = parseInt(req.params.id, 10);
     const question = await db.Question.findByPk(questionId);
 
+    if (!question) {
+      const err = new Error("Not Found");
+      err.status = 404;
+      throw err;
+    }
     if (res.locals.user.id !== question.userId) {
-      const err = new Error("Not authorized");
+      const err = new Error("Not Authorized");
       err.status = 401;
       throw err;
     }
@@ -178,8 +194,13 @@ router.post(
     const questionId = parseInt(req.params.id, 10);
     const question = await db.Question.findByPk(questionId);
 
+    if (!question) {
+      const err = new Error("Not Found");
+      err.status = 404;
+      throw err;
+    }
     if (res.locals.user.id !== question.userId) {
-      const err = new Error("Not authorized");
+      const err = new Error("Not Authorized");
       err.status = 401;
       throw err;
     }
@@ -187,7 +208,7 @@ router.post(
     const answers = await db.Answer.findAll({
       where: { questionId },
     });
-    
+
     let answerIds = answers.map((answer) => {
       return answer.dataValues.id;
     });

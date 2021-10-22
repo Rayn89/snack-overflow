@@ -20,7 +20,7 @@ block content
                                 form(action=`/questions/${question.id}/delete` method='get')
                                     button.delete-button Delete
             div.answers-wrapper
-                if answers
+                if answers.length>0
                     div.result-number
                         a #{answers.length === 1 ? `${answers.length} Answer` : `${answers.length} Answers`}
                     each answer in answers
@@ -28,10 +28,10 @@ block content
                             div.ans-cont
                                 div.vote-buttons
                                     if locals.authenticated
-                                        div.up(id=`up-${answer.id}`)
+                                        div(class=`up` id=`up-${answer.id}`)
                                         div.count(id=`count-${answer.id}`)
                                             a #{answer.answerScore}
-                                        div.down(id=`down-${answer.id}`)
+                                        div(class=`down` id=`down-${answer.id}`)
                                     else
                                         div.upfake(onclick="myFunction()")
                                         div.count
@@ -51,7 +51,7 @@ block content
                                             form(action=`/answers/${answer.id}/delete`, method="get")
                                                 button.delete-button Delete
                 else
-                    p Be the first one to answer this question!
+                    p.first Be the first one to answer this question!
                 if errors
                     p The following errors occurred:
                     ul
@@ -72,4 +72,3 @@ block content
         script(src="/javascripts/index.js")
         script.
             function myFunction() {alert("You must be logged in to upvote and downvote")}
-    

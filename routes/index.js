@@ -11,12 +11,11 @@ router.get(
   asyncHandler(async (req, res) => {
     const answers = await db.Answer.findAll({
       order: [["updatedAt", "DESC"]],
-      limit: 9,
       include: [{ model: db.Question, include: db.User }],
     });
 
     const set = new Set();
-    const sortedQuestions = [];
+    let sortedQuestions = [];
 
     answers.forEach((answer) => {
       if (!set.has(answer.Question.id)) {
@@ -28,6 +27,10 @@ router.get(
     console.log(
       sortedQuestions.map((sortedQuestion) => sortedQuestion.dataValues)
     );
+
+    if (sortedQuestions.length > 9) {
+      sortedQuestions = sortedQuestions.slice(0, 9);
+    }
 
     res.render("index", { sortedQuestions });
   })

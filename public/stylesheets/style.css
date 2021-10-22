@@ -241,6 +241,10 @@ a {
 .ask:hover {
   background-color: #49799d;
 }
+.first{
+    margin-top: 2rem;
+    font-size: 1.5rem;
+}
 
 .questionBox {
   display: flex;
@@ -272,6 +276,7 @@ a {
   justify-content: flex-start;
   text-decoration: none;
 }
+
 
 /* ####### Answers ############ */
 .answers-wrapper{
@@ -399,6 +404,14 @@ a {
   margin-top: 1rem;
   height: auto;
   width: 100%;
+}
+.burger{
+    width: 80%;
+    height:auto;
+}
+.cookie{
+    width: 60%;
+    height:auto;
 }
 
 /* footer################################## */

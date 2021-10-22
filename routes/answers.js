@@ -13,7 +13,6 @@ const answerValidator = [
     .withMessage("Please provide a valid answer"),
 ];
 
-// app.get('/:id(//')
 router.post(
   "/",
   requireAuth,
@@ -34,9 +33,11 @@ router.post(
       await answer.save();
       res.redirect(`/questions/${questionId}`);
     } else {
-      const question = await db.Question.findByPk(questionId);
+      const question = await db.Question.findByPk(questionId, {
+        include: db.User,
+      });
       const errors = validatorErrors.array().map((error) => error.msg);
-      res.render("question", {
+      res.render("bad-answer", {
         answer,
         question,
         errors,

@@ -1,3 +1,7 @@
+.form-header{
+    border-bottom: 1px solid rgba(128, 128, 128, 0.301);
+}
+
 .warn{
     display:flex;
     border: 0.125rem solid #c76464;
@@ -13,18 +17,36 @@
     justify-content:center;
     margin-top: 10rem;
     gap: 0.5rem;
-
-
-
 }
+
+.ask-container{
+    display: flex;
+    justify-content:center;
+    margin-top: 1.5rem;
+    gap: 0.5rem;
+}
+
 .field{
     display: flex;
     justify-content:space-between;
     width: 30rem;
 
 }
+
+.field-placeholder{
+    display: flex;
+    justify-content: center;
+    width: 30rem;
+}
+
 .form-bar{
     width: 20rem;
+}
+
+.form-box{
+    width: 20rem;
+    height: 12rem;
+    resize: none;
 }
 
 .form{

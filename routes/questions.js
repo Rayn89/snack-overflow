@@ -116,6 +116,7 @@ router.get(
 router.post(
   "/:id(\\d+)/edit",
   requireAuth,
+  questionValidator,
   csrfProtection,
   asyncHandler(async (req, res) => {
     const questionId = parseInt(req.params.id, 10);
@@ -135,8 +136,21 @@ router.post(
       err.status = 401;
       throw err;
     }
-    await question.update(updatedQuestion);
-    res.redirect(`/questions/${questionId}`);
+
+    const validatorErrors = validationResult(req);
+
+    if (validatorErrors.isEmpty()) {
+      await question.update(updatedQuestion);
+      res.redirect(`/questions/${questionId}`);
+    } else {
+      const errors = validatorErrors.array().map((error) => error.msg);
+      res.render("question-edit", {
+        question,
+        updatedQuestion,
+        errors,
+        csrfToken: req.csrfToken(),
+      });
+    }
   })
 );
 

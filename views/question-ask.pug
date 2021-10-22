@@ -1,16 +1,26 @@
 extends layout.pug 
 
 block content
-    if errors
-        p The following errors occurred:
-        ul
-            each error in errors
-                li= error
-    form(action=`/questions/ask` method="post")
-        input(type='hidden' name='_csrf' value=csrfToken)
-        input(type='hidden' name='userId' value=locals.user.id)
-        label(for='title') Question:
-        input(type='text' name='title' value=question.title)
-        label(for='content') Description:
-        textarea(type='text' name='content') #{question.content}
-        button Submit
+    .wrapper
+        .sidebar 
+        .mainbar
+            h1.form-header Ask a Question
+            if errors
+                .warn
+                    p The following errors occurred:
+                    ul
+                        each error in errors
+                            li= error
+            .ask-container
+                form.form(action=`/questions/ask` method="post")
+                    input(type='hidden' name='_csrf' value=csrfToken)
+                    input(type='hidden' name='userId' value=locals.user.id)
+                    .field-placeholder
+                        //- label(for='title') Question:
+                        input.form-bar(type='text' name='title' value=question.title placeholder="Question")
+                    .field-placeholder
+                        //- label(for='content') Description:
+                        textarea.form-box(type='text' name='content' placeholder="Description") #{question.content}
+                    .field-button
+                        button.signup-button Submit
+        .sidebar 

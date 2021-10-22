@@ -1,20 +1,27 @@
 extends layout.pug
 
 block content
-    if errors
-        p The following errors occurred:
-        ul
-            each error in errors
-                li= error
-    form(action="/users/login" method="post")
-        input(type='hidden' name='_csrf' value=csrfToken)
-        div
-            label(for='email') Email
-            input(type='email' name='email' value=email)
-        div
-            label(for='password') Password
-            input(type='password' name='password')
-        div
-            button Log In
-    div
-        p: a(href='/users/signup') Don't have an account?
+    .wrapper 
+        .sidebar 
+        .mainbar
+            if errors
+                .warn
+                    p The following errors occurred:
+                    ul
+                        each error in errors
+                            li= error
+            .sign-up
+                form.form(action="/users/login" method="post")
+                    input(type='hidden' name='_csrf' value=csrfToken)
+                    div.field
+                        label(for='email') Email
+                        input.form-bar(type='email' name='email' value=email)
+                    div.field
+                        label(for='password') Password
+                        input.form-bar(type='password' name='password')
+                    div.field-button
+                        button.signup-button Log In
+            div
+                p: a(href='/users/signup') Don't have an account?
+        .sidebar 
+    include footer.pug

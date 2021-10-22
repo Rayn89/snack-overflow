@@ -1,0 +1,61 @@
+@media only screen and (max-width: 1400px) {
+    /* body {
+
+    } */
+    .navWrapper{
+        flex-direction: column;
+        gap:1rem;
+        padding-bottom: 2rem;
+        padding-top: 1rem;
+    }
+    .logo{
+        flex-direction: column;
+    }
+    .navQuestions{
+        border:none;
+    }
+    .search{
+        height: 2rem;
+        width:fit-content;
+        margin: 1rem 0;
+    }
+    .searchBar{
+        width: fit-content;
+    }
+    .bar{
+        width:75%;
+    }
+    .bar:focus{
+        width: 500px;
+    }
+    .searchButton{
+        width: fit-content;
+    }
+    .bar-button{
+        width: fit-content;
+    }
+    .right-buttons{
+        flex-direction: column;
+        gap:1rem;
+    }
+    .sidebar{
+        width: 0%;
+    }
+    .mainbar{
+        width: 100%;
+    }
+    .demo-buttons{
+        margin-bottom: 1rem;
+
+    }
+    .questionBox{
+        height: fit-content;
+    }
+
+  }
+  @media only screen and (max-width: 600px) {
+
+    .bar:focus{
+        width:300px;
+    }
+  }

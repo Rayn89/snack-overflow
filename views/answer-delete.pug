@@ -1,7 +1,13 @@
 extends layout.pug
 
 block content
-    h1 Are you sure you want to delete your answer:
-    h3 #{answer.content}
-    form(action=`/answers/${answer.id}/delete` method='post')
-        button Delete
+    .wrapper 
+        .sidebar 
+        .mainbar
+            h1 Are you sure you want to delete your answer:
+            h3 #{answer.content}
+            .ask-container
+                form.form(action=`/answers/${answer.id}/delete` method='post')
+                    .field-button
+                        button.delete-button1 Delete
+    include footer.pug

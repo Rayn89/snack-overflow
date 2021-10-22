@@ -1,8 +1,22 @@
 extends layout.pug
 
 block content
-    form(action=`/answers/${answer.id}/edit` method="post")
-        input(type='hidden' name='_csrf' value=csrfToken)
-        label(for='content') Answer:
-        textarea(type='text' name='content') #{answer.content}
-        button Edit
+    .wrapper 
+        .sidebar 
+        .mainbar
+            h1.form-header Edit Your Answer
+            if errors
+                .warn
+                    p The following errors occurred:
+                    ul
+                        each error in errors
+                            li= error
+            .ask-container
+                form.form(action=`/answers/${answer.id}/edit` method="post")
+                    input(type='hidden' name='_csrf' value=csrfToken)
+                    //- label(for='content') Answer:
+                    .field-placeholder
+                        textarea.form-box(type='text' name='content') #{answer.content}
+                    .field-button
+                        button.signup-button Submit
+    include footer.pug

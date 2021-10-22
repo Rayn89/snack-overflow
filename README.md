@@ -17,7 +17,7 @@ https://docs.google.com/spreadsheets/d/16HnED6Xv7UGZWam32bMn7SqEXFdmZD4lMn_ATgJT
 * Scorecard (Google Doc)
 
 ```
-https://docs.google.com/spreadsheets/d/1eSIGD17dXf8CsA2OVvD2F2wUAAolnhUC/edit?usp=sharing&ouid=109909495009866623118&rtpof=true&sd=true
+https://docs.google.com/spreadsheets/d/1vlDtzevdWGxY0yHjNtjp4eVsfbjljaRrmzVOAlCCBQM/edit#gid=1030287311
 ```
 
 * Group project (Google Doc)

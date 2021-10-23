@@ -12,7 +12,7 @@ router.get(
   asyncHandler(async (req, res) => {
     const questions = await db.Question.findAll({
       include: db.User,
-      limit: 9,
+      limit: 20,
       order: [["updatedAt", "DESC"]],
     });
 
@@ -87,7 +87,7 @@ router.get(
       include: db.User,
     });
     const answers = await db.Answer.findAll({
-      order:[['createdAt']],
+      order:[['createdAt', 'ASC']],
       include: [db.User],
       where: { questionId },
     });

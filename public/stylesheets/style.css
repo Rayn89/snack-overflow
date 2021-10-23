@@ -1,5 +1,6 @@
 body {
   margin: 0px;
+
 }
 
 * {
@@ -203,10 +204,13 @@ a {
 
 .edit-button{
     width: 100%;
+
+
 }
 
 .delete-button{
     margin-bottom: 1rem;
+ 
 }
 
 .askBox {
@@ -420,6 +424,7 @@ a {
   display: flex;
   justify-content: center;
   background-color: #51516b;
+  margin-top: 2rem;
 }
 
 .profile-wrapper {

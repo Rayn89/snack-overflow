@@ -28,8 +28,8 @@ router.get(
       sortedQuestions.map((sortedQuestion) => sortedQuestion.dataValues)
     );
 
-    if (sortedQuestions.length > 9) {
-      sortedQuestions = sortedQuestions.slice(0, 9);
+    if (sortedQuestions.length > 20) {
+      sortedQuestions = sortedQuestions.slice(0, 20);
     }
 
     res.render("index", { sortedQuestions });
@@ -43,7 +43,7 @@ router.get(
     const questions = await db.Question.findAll({
       where: {
         title: {
-          [Op.like]: "%" + term + "%",
+          [Op.iLike]: "%" + term + "%",
         },
       },
       include: db.User,

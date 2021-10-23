@@ -42,7 +42,7 @@ block content
                                 div.answer-info
                                     a answered by: #{answer.User.userName}
                                     br
-                                    a posted on: #{answer.updatedAt.toString().split(' ').slice(0,5).join(' ')}
+                                    a posted on: #{answer.createdAt.toString().split(' ').slice(0,5).join(' ')}
                                 div.question-buttons
                                     if locals.authenticated
                                         if answer.User.id === locals.user.id

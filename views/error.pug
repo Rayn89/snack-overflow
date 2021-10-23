@@ -1,21 +1,21 @@
-//- extends layout
-
-//- block content
-//-     .wrapper
-//-         .sidebar
-//-         .mainbar
-//-             img.cookie(src="https://cdn.discordapp.com/attachments/898413474080772116/901244289407922196/404cookie.png")
-//-         .sidebar
-//-     include footer.pug
-
 extends layout
 
 block content
-  .wrapper
-    .sidebar
-    .mainbar
-      h1= message
-      h2= error.status
-      pre #{error.stack}
-    .sidebar
-  include footer.pug
+    .wrapper
+        .sidebar
+        .mainbar
+            img.cookie(src="https://cdn.discordapp.com/attachments/898413474080772116/901244289407922196/404cookie.png")
+        .sidebar
+    include footer.pug
+
+//- extends layout
+
+//- block content
+//-   .wrapper
+//-     .sidebar
+//-     .mainbar
+//-       h1= message
+//-       h2= error.status
+//-       pre #{error.stack}
+//-     .sidebar
+//-   include footer.pug

@@ -1,8 +1,8 @@
 extends layout.pug
 
 block content
-    .wrapper 
-        .sidebar 
+    .wrapper
+        .sidebar
         .mainbar
             if errors
                 .warn
@@ -11,17 +11,18 @@ block content
                         each error in errors
                             li= error
             .sign-up
+                h1 Login
                 form.form(action="/users/login" method="post")
                     input(type='hidden' name='_csrf' value=csrfToken)
                     div.field
-                        label(for='email') Email
-                        input.form-bar(type='email' name='email' value=email)
+                        //- label(for='email') Email
+                        input.form-bar(type='email' name='email' value=email placeholder="Email")
                     div.field
-                        label(for='password') Password
-                        input.form-bar(type='password' name='password')
+                        //- label(for='password') Password
+                        input.form-bar(type='password' name='password' placeholder="Password")
                     div.field-button
                         button.signup-button Log In
             div
                 p: a(href='/users/signup') Don't have an account?
-        .sidebar 
+        .sidebar
     include footer.pug

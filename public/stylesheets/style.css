@@ -180,6 +180,7 @@ a {
   border-left: 1px solid rgba(128, 128, 128, 0.527);
   border-right: 1px solid rgba(128, 128, 128, 0.527);
   min-height: 70rem;
+  padding-bottom: 2rem;
 }
 
 /* #Questions################ */
@@ -205,12 +206,11 @@ a {
 .edit-button{
     width: 100%;
 
-
 }
 
 .delete-button{
     margin-bottom: 1rem;
- 
+
 }
 
 .askBox {
@@ -328,6 +328,7 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 1rem 0;
 }
 
 .answer-form-container{
@@ -363,44 +364,44 @@ a {
 .up {
   width: 0;
   height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 5px solid grey;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 12px solid grey;
 }
 .down {
   width: 0;
   height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid grey;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 12px solid grey;
 }
 .upfake {
   width: 0;
   height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 5px solid grey;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 12px solid grey;
 }
 .downfake {
   width: 0;
   height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid grey;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 12px solid grey;
 }
 .uptrue {
   width: 0;
   height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 5px solid orange;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 12px solid orange;
 }
 .downtrue {
   width: 0;
   height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid blue;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 12px solid blue;
 }
 /* index################################## */
 
@@ -424,7 +425,7 @@ a {
   display: flex;
   justify-content: center;
   background-color: #51516b;
-  margin-top: 2rem;
+
 }
 
 .profile-wrapper {

@@ -14,9 +14,15 @@
 
 .sign-up{
     display: flex;
+    flex-direction: column;
     justify-content:center;
+    align-items: center;
     margin-top: 10rem;
     gap: 0.5rem;
+    width: 70%;
+    background-color:#e4e4ec;
+    padding: 2rem 0.5rem 3rem 0.5rem;
+    border-radius:10px;
 }
 
 .ask-container{
@@ -28,19 +34,22 @@
 
 .field{
     display: flex;
-    justify-content:space-between;
-    width: 30rem;
+    justify-content:center;
+    width: 90%;
 
 }
 
 .field-placeholder{
     display: flex;
     justify-content: center;
-    width: 30rem;
+    width: 100%
 }
 
 .form-bar{
-    width: 20rem;
+    width: 100%;
+    font-size:1.6rem;
+    border:0.2px black solid;
+    border-radius: 5px;
 }
 
 .form-box{
@@ -53,11 +62,15 @@
 .form{
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap:1rem;
+    width:100%;
 }
 .field-button{
     display: flex;
     justify-content: center;
+    width: 90%;
+    margin-top:2rem;
 }
 .signup-button{
     background-color: #5196d8;

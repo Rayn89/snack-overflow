@@ -11,22 +11,24 @@ block content
                         each error in errors
                             li= error
             .sign-up
+                h1 User Sign Up
                 form.form(action="/users/signup" method="post")
                     input(type='hidden' name='_csrf' value=csrfToken)
                     div.field
-                        label(for='userName') Username
-                        input.form-bar(type='text' name='userName' value=user.userName)
+                        //- label(for='userName') Username
+                        input.form-bar(type='text' name='userName' value=user.userName placeholder='User Name')
                     div.field
-                        label(for='email') Email
-                        input.form-bar(type='email' name='email' value=user.email)
+                        //- label(for='email') Email
+                        input.form-bar(type='email' name='email' value=user.email placeholder='Email')
                     div.field
-                        label(for='password') Password
-                        input.form-bar(type='password' name='password')
+                        //- label(for='password') Password
+                        input.form-bar(type='password' name='password' placeholder='Password')
                     div.field
-                        label(for='confirmPassword') Confirm Password
-                        input.form-bar(type='password' name='confirmPassword')
+                        //- label(for='confirmPassword') Confirm Password
+                        input.form-bar(type='password' name='confirmPassword' placeholder='Confirm Password')
                     div.field-button
                         button.signup-button Sign Up
             div
                 p: a(href='/users/login') Already have an account?
         .sidebar
+    include footer.pug

@@ -2,8 +2,8 @@
 
 Snack Overflow, a Stack Overflow clone, is an application that allows users to publicly ask questions and answers that can be viewed and liked by other users.
 
-<h4> Link to Live Application: <a href="https://snack-over-flow.herokuapp.com/">Codegenda</a></h4>
-<h4> Documentation: <a href="https://github.com/Rayn89/snack-overflow/wiki">Codegenda Wiki</a></h4>
+<h4> Link to Live Application: <a href="https://snack-over-flow.herokuapp.com/">Snack Overflow</a></h4>
+<h4> Documentation: <a href="https://github.com/Rayn89/snack-overflow/wiki">Snack Overflow Wiki</a></h4>
 
 <h3>Contributors</h3>
 <ul>

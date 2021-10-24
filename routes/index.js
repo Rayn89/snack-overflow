@@ -101,6 +101,7 @@ router.post(
           down: false,
         });
       }
+
       console.log(vote);
       return res.json({
         answerScore: answer.answerScore,
@@ -147,9 +148,15 @@ router.post(
       }
       return res.json({ answerScore: answer.answerScore, ...vote.dataValues });
     } else {
-      return res.send("why?");
+      return res.json({
+        answerScore: answer.answerScore,
+        down: vote.down,
+        up: vote.up,
+        ...vote.dataValues,
+      });
     }
   })
 );
+
 
 module.exports = router;

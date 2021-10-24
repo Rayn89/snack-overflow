@@ -5,6 +5,12 @@ Snack Overflow, a Stack Overflow clone, is an application that allows users to p
 <h4> Link to Live Application: <a href="https://snack-over-flow.herokuapp.com/">Snack Overflow</a></h4>
 <h4> Documentation: <a href="https://github.com/Rayn89/snack-overflow/wiki">Snack Overflow Wiki</a></h4>
 
+Splash Page (while not signed in)
+![image_2021-10-23_104417](https://cdn.discordapp.com/attachments/898413474080772116/901888096868634664/unknown.png)
+
+Splash Page (while not signed in)
+![image_2021-10-23_104417](https://cdn.discordapp.com/attachments/898413474080772116/901888185850806282/unknown.png)
+
 <h3>Contributors</h3>
 <ul>
   <li>

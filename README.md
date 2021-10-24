@@ -1,20 +1,20 @@
 # Snack Overflow #
 
-Codegenda is a web application modeled after Remember The Milk. Codegenda is geared towards programmers and software engineers as a way to store current info on projects(lists) and add tasks to those projects that they are working on. It is written with a combination of vanilla Javascript for the frontend, Express.js for the backend, and PUG for the rendered pages.  
+Snack Overflow, a Stack Overflow clone, is an application that allows users to publicly ask questions and answers that can be viewed and liked by other users.
 
-<h4> Link to Live Application: <a href="http://codegenda.herokuapp.com">Codegenda</a></h4>
-<h4> Documentation: <a href="https://github.com/robstrass/Codegenda/wiki">Codegenda Wiki</a></h4>
+<h4> Link to Live Application: <a href="https://snack-over-flow.herokuapp.com/">Codegenda</a></h4>
+<h4> Documentation: <a href="https://github.com/Rayn89/snack-overflow/wiki">Codegenda Wiki</a></h4>
 
 <h3>Contributors</h3>
 <ul>
   <li>
-    <a href=https://github.com/robstrass>Rob Strasser</a></li>
+    <a href=https://github.com/a-sugawara>Alfredo Sugawara</a></li>
   <li>
-    <a href=https://github.com/Vour123>Jose Cantu</a></li>
+    <a href=https://github.com/Rayn89>Ray Nehring</a></li>
   <li>
-    <a href=https://github.com/snakedreamz>Isreal Romero</a></li>
+    <a href=https://github.com/greg-nice>Greg Gomes</a></li>
   <li>
-    <a href=https://github.com/Payneless>Jake Payne</a></li>
+    <a href=https://github.com/cloudiosx>John Kim</a></li>
 </ul>
 
 ## Project-related Files ##

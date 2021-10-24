@@ -179,7 +179,7 @@ a {
   align-items: center;
   border-left: 1px solid rgba(128, 128, 128, 0.527);
   border-right: 1px solid rgba(128, 128, 128, 0.527);
-  min-height: 70rem;
+  min-height: calc(85vh - 50px);
   padding-bottom: 2rem;
 }
 
@@ -394,14 +394,14 @@ a {
   height: 0;
   border-left: 12px solid transparent;
   border-right: 12px solid transparent;
-  border-bottom: 12px solid orange;
+  border-bottom: 12px solid #b4570a;
 }
 .downtrue {
   width: 0;
   height: 0;
   border-left: 12px solid transparent;
   border-right: 12px solid transparent;
-  border-top: 12px solid blue;
+  border-top: 12px solid #252651;
 }
 /* index################################## */
 

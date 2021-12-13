@@ -102,7 +102,6 @@ router.post(
         });
       }
 
-      console.log(vote);
       return res.json({
         answerScore: answer.answerScore,
         down: vote.down,
@@ -121,7 +120,6 @@ router.post(
           answerScore: answer.answerScore - 1,
         });
       } else if (vote.up === true) {
-        console.log("downnn");
         await answer.update({
           answerScore: answer.answerScore - 2,
         });
